@@ -34,8 +34,8 @@ pip install -r requirements.txt
 * Isi fungsi `scrap` dengan proses scraping yang sudah Bapak/Ibu lakukan di notebook. 
 
 ```python
-table = soup.find(___)
-tr = table.find_all(___)
+table = soup.find('table',class_='table table-striped text-sm text-lg-normal')
+row_length = len(table.find_all('tr'))
 ```
 
 * Isi bagian ini untuk menyimpan hasil scrap yang Bapak/Ibu buat menjadi sebuah dataframe.
@@ -47,7 +47,7 @@ df = pd.DataFrame(name of your tupple, columns = (name of the columns))
 * Terakhir Bapak/Ibu dapat menggunakan fungsi `scrap` dengan cara mengisi bagian berikut dengan link web yang Bapak/Ibu scrap.
 
 ```python
-df = scrap(___) #insert url here
+df = scrap('https://www.coingecko.com/en/coins/ethereum/historical_data/?start_date=2020-01-01&end_date=2021-06-30') #insert url here
 ```
 
 * Bapak/Ibu juga dapat bermain dengan UI nya pada `index.html` yang dimana Bapak/Ibu dapat mengikuti comment yang ada untuk mengetahui bagian mana yang dapat diubah. 

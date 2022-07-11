@@ -41,7 +41,20 @@ row_length = len(table.find_all('tr'))
 * Isi bagian ini untuk menyimpan hasil scrap yang Bapak/Ibu buat menjadi sebuah dataframe.
 
 ```python
-df = pd.DataFrame(name of your tupple, columns = (name of the columns))
+df = pd.DataFrame(columns=['Date','Market Cap','Volume','Open','Close'])
+for row in table.tbody.find_all('tr'):    
+    # Find all data for each column
+    date=row.find_all('th')
+    columns = row.find_all('td')
+    if(columns != []):
+        date_1 = date[0].text.strip()
+        market_cap = columns[0].text.strip()
+        volume = columns[1].text.strip()
+        open_ = columns[2].text.strip()
+        close = columns[3].text.strip()
+
+
+        df = df.append({'Date': date_1,  'Market Cap': market_cap, 'Volume': volume, 'Open': open_, 'Close': close}, ignore_index=True)
 ```
 
 * Terakhir Bapak/Ibu dapat menggunakan fungsi `scrap` dengan cara mengisi bagian berikut dengan link web yang Bapak/Ibu scrap.
